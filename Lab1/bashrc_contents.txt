@@ -1,0 +1,33 @@
+# Filename: .bashrc
+# Description: This is the standard .bashrc for new named accounts.
+#
+# Please (DO NOT) edit this file unless you are sure of what you are doing.
+# This file and other dotfiles have been written to work with each other.
+# Any change that you are not sure off can break things in an unpredicatable
+# ways.
+
+# Set the Class MASTER  variables and source the class master version of .cshrc
+
+[[ -z ${MASTER} ]] && export MASTER=${LOGNAME%-*}
+[[ -z ${MASTERDIR} ]] && export MASTERDIR=$(eval echo ~${MASTER})
+
+# Set up class wide settings
+For file in ${MASTERDIR}/adm/bashrc.d/* ; do [[ -x ${file} ]] && . "${file}"; done
+
+# Set up local settings
+For file in ${HOME}/bashrc.d/* ; do [[ -x ${file} ]] && . "${file}"; done
+
+###################### Turtlebot
+
+source /opt/ros/noetic/setup.bash
+export TURTLEBOT3_MODEL=burger
+
+# Master URI and Hostname is PC IP address
+export ROS_MASTER_URI=http://192.168.1.8:11311
+export ROS_HOSTNAME=192.168.1.8
+
+###################### Baxter & Sawyer
+
+# source /opt/ros/eecsbot_ws/devel/setup.bash
+# export ROS_MASTER_URI=http://amir.local:11311
+# export ROS_HOSTNAME=192.168.1.8
