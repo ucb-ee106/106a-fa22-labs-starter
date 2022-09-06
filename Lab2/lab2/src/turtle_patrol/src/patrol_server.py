@@ -3,7 +3,7 @@ from geometry_msgs.msg import Twist
 import numpy as np
 import rospy
 from std_srvs.srv import Empty
-from turtle_patrol_sol.srv import Patrol  # Service type
+from turtle_patrol.srv import Patrol  # Service type
 from turtlesim.srv import TeleportAbsolute
 
 
