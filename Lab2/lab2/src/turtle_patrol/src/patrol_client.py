@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import numpy as np
 import rospy
-from turtle_patrol_sol.srv import Patrol  # Import service type
+from turtle_patrol.srv import Patrol  # Import service type
 
 
 def patrol_client():
