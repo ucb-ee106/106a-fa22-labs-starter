@@ -51,8 +51,13 @@ def main():
             # Setting just the position without specifying the orientation
             ###group.set_position_target([0.5, 0.5, 0.0])
 
-            # Plan IK and execute
-            group.go()
+            # Plan IK
+            plan = group.plan()
+            user_input = input("Enter 'y' if the trajectory looks safe on RVIZ")
+            
+            # Execute IK if safe
+            if user_input == 'y':
+                group.execute(plan[1])
             
         except rospy.ServiceException as e:
             print("Service call failed: %s"%e)
