@@ -86,7 +86,6 @@ class OccupancyGrid2d(object):
         # -- self._sensor_topic
         # -- self._vis_topic
 
-
         # Frames.
         # TODO! You'll need to set values for class variables called:
         # -- self._sensor_frame
@@ -164,7 +163,7 @@ class OccupancyGrid2d(object):
             # Only update each voxel once. 
             # The occupancy grid is stored in self._map
             # TODO!
-            
+
         # Visualize.
         self.Visualize()
 
@@ -172,9 +171,7 @@ class OccupancyGrid2d(object):
     def PointToVoxel(self, x, y):
         grid_x = int((x - self._x_min) / self._x_res)
         grid_y = int((y - self._y_min) / self._y_res)
-        
-        grid_x = grid_x if grid_x < len(self._map)  else len(self._map) - 1 
-        grid_y = grid_y if grid_y < len(self._map[0])   else len(self._map[0]) - 1 
+
         return (grid_x, grid_y)
 
     # Get the center point (x, y) corresponding to the given voxel.
